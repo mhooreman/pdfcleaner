@@ -21,15 +21,21 @@ authors = [
 ]
 classifiers = [
     # See the list of trove classifiers on https://pypi.org/classifiers/
-    "Development Status :: 4 - Beta",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Framework :: Hatch",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
+    "Programming Language :: Python",
+    "Topic :: Documentation",
+    "Topic :: Office/Business",
+    "Typing :: Typed",
 ]
 dependencies = [
     "click",
