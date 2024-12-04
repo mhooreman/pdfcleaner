@@ -1,9 +1,9 @@
+# Copyright (C) 2024-present Michaël Hooreman <mhooreman@icloud.com>
 """The application classes."""
 
 import dataclasses
 import pathlib
 
-# Copyright (C) 2024-present Michaël Hooreman <mhooreman@icloud.com>
 import click
 import pypdf
 
