@@ -9,9 +9,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "templatepython"
+name = "pdfcleaner"
 dynamic = ["version"]
-description = 'A python project template'
+description = "Clean PDF by removing all non-page content"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "BSD-3-Clause"
@@ -34,22 +34,23 @@ classifiers = [
 dependencies = [
     "click",
     "loguru",
+    "pypdf",
 ]
 
 [project.urls]
-Documentation = "https://github.com/Michaël Hooreman/templatepython#readme"
-Issues = "https://github.com/Michaël Hooreman/templatepython/issues"
-Source = "https://github.com/Michaël Hooreman/templatepython"
+Documentation = "https://github.com/Michaël Hooreman/pdfcleaner#readme"
+Issues = "https://github.com/Michaël Hooreman/pdfcleaner/issues"
+Source = "https://github.com/Michaël Hooreman/pdfcleaner"
 
 [project.scripts]
-templatepython = "templatepython.cli:templatepython"
+pdfcleaner = "pdfcleaner.cli:pdfcleaner"
 
 ###############################################################################
 # Hatch configuration
 ###############################################################################
 
 [tool.hatch.version]
-path = "src/templatepython/__about__.py"
+path = "src/pdfcleaner/__about__.py"
 
 
 #------------------------------------------------------------------------------
@@ -77,7 +78,7 @@ check = """mypy                                \\
     --show-error-context --show-column-numbers \\
     --show-error-end --show-error-code-links   \\
     --pretty                                   \\
-    {args:src/templatepython tests}"""
+    {args:src/pdfcleaner tests}"""
 
 # =============================================================================
 # MyPy configuration
@@ -110,17 +111,17 @@ python = [
 # =============================================================================
 
 [tool.coverage.run]
-source_pkgs = ["templatepython", "tests"]
+source_pkgs = ["pdfcleaner", "tests"]
 branch = true
 parallel = true
 randomize = true
 omit = [
-    "src/templatepython/__about__.py",
+    "src/pdfcleaner/__about__.py",
 ]
 
 [tool.coverage.paths]
-src = ["src/templatepython", "*/templatepython/src/templatepython"]
-tests = ["tests", "*/templatepython/tests"]
+src = ["src/pdfcleaner", "*/pdfcleaner/src/pdfcleaner"]
+tests = ["tests", "*/pdfcleaner/tests"]
 
 [tool.coverage.report]
 exclude_lines = [
