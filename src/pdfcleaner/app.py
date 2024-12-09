@@ -6,6 +6,7 @@ import pathlib
 
 import click
 import pypdf
+from loguru import logger
 
 
 @dataclasses.dataclass(frozen=True)
@@ -18,7 +19,10 @@ class PdfCleaner:
     @property
     def input_files(self) -> tuple[pathlib.Path, ...]:
         """Return all the input files (sorted)."""
-        return tuple(sorted(self.top_input_path.glob("**/*.pdf")))
+        logger.info("Listing input PDF files...")
+        ret = tuple(sorted(self.top_input_path.glob("**/*.pdf")))
+        logger.info(f"... {len(ret)} files found.")
+        return ret
 
     def _input_path_to_output(self, input_path: pathlib.Path) -> pathlib.Path:
         return self.top_output_path.joinpath(
@@ -35,6 +39,9 @@ class PdfCleaner:
         Since only the pages are read, no additional artificial widget hiding
         the content is shown on the pages, and JavaScript code is dropped.
         """
+        if out_.exists():
+            # Already converted, skipping
+            return
         if not out_.parent.exists():
             out_.parent.mkdir(parents=True, exist_ok=True)
         with pypdf.PdfReader(in_) as rd, pypdf.PdfWriter(out_) as wr:

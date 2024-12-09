@@ -5,4 +5,4 @@ This only contains the package version. This is in an isolated file because
 this version is managed automatically by hatch.
 """
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
