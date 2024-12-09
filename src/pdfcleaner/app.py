@@ -39,6 +39,9 @@ class PdfCleaner:
         Since only the pages are read, no additional artificial widget hiding
         the content is shown on the pages, and JavaScript code is dropped.
         """
+        if in_.is_dir():
+            logger.warning("Skipping {} which is a directory.", in_)
+            return
         if out_.exists():
             # Already converted, skipping
             return
